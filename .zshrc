@@ -87,3 +87,12 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(ssh-agent -s)"
 
+# Julia init
+path=('/home/mkipcak/.juliaup/bin' $path)
+export PATH
+
+# tmux init
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
